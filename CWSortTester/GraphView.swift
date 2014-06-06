@@ -34,21 +34,21 @@ class GraphView: UIView {
         }
     }
     
-    func drawData( context: CGContext!, data: Array<Double>?, color: UIColor, rect: CGRect) {
-        if data![data!.count - 1] > yMax {
-            yMax = data![data!.count - 1]
+    func drawData( context: CGContext!, data: Array<Double>!, color: UIColor, rect: CGRect) {
+        if CGFloat(data[data.count - 1]) > yMax {
+            yMax = CGFloat(data[data.count - 1])
         }
         
         let yScale : CGFloat = rect.height / yMax
-        let xCount : CGFloat = data!.count.bridgeToObjectiveC().doubleValue - 1
+        let xCount = CGFloat(data.count - 1)
         let xScale : CGFloat = rect.width / xCount
         
         CGContextSetLineWidth(context, 2.0)
         CGContextSetStrokeColorWithColor(context, color.CGColor)
         CGContextMoveToPoint(context, 0, rect.height)
-        for (x, y) in enumerate(data!) {
-            var xPoint : CGFloat = xScale * x.bridgeToObjectiveC().doubleValue
-            var yPoint : CGFloat = rect.height - yScale * y.bridgeToObjectiveC().doubleValue
+        for var x = 0; x < data.count; x++ {
+            var xPoint : CGFloat = xScale * CGFloat(x)
+            var yPoint : CGFloat = rect.height - yScale * CGFloat(data[x])
             CGContextAddLineToPoint(context, xPoint, yPoint)
             CGContextMoveToPoint(context, xPoint, yPoint)
         }
