@@ -14,10 +14,9 @@ class LogViewController: UITableViewController {
         super.viewDidLoad()
         var navBar = UINavigationBar()
         self.tableView.addSubview(navBar)
-        var navigationItem = UINavigationItem(title: "Sort Log")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "dismiss")
-        navigationItem.hidesBackButton = true
-        self.navigationController.navigationBar.pushNavigationItem(navigationItem, animated: false)
+        self.title = "Sort Log"
+        var doneButton = UIBarButtonItem(title: "Done", style: .Done, target: self, action: "dismiss")
+        self.navigationController.topViewController.navigationItem.rightBarButtonItem = doneButton
         self.tableView.rowHeight = 20
     }
     

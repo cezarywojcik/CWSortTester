@@ -33,10 +33,9 @@ class SettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var navigationItem = UINavigationItem(title: "Settings")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .Done, target: self, action: "doneButtonPressed")
-        navigationItem.hidesBackButton = true
-        self.navigationController.navigationBar.pushNavigationItem(navigationItem, animated: false)
+        self.title = "Settings"
+        var saveButton = UIBarButtonItem(title: "Save", style: .Done, target: self, action: "saveButtonPressed")
+        self.navigationController.topViewController.navigationItem.rightBarButtonItem = saveButton
         self.fromSlider.value = Float(from)
         self.toSlider.value = Float(to)
         self.stepSlider.value = Float(step)
@@ -95,7 +94,7 @@ class SettingsViewController: UITableViewController {
         updateLabels()
     }
     
-    func doneButtonPressed() {
+    func saveButtonPressed() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
