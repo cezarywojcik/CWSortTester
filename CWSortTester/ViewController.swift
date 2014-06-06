@@ -65,7 +65,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func testSortPressed(sender : UIBarButtonItem) {
-        self.sortLog += "Running \(getSortName())..."
+        self.sortLog += "\(getSortName()) for \(self.to) random integers:"
         switch self.selectedSort {
         case .bubbleSort:
             testSorts({swiftSorter.bubbleSort($0)}, objcSort: {objcSorter.bubbleSort($0)})
