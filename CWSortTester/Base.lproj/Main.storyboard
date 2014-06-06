@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6162" systemVersion="14A238h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6160"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CWSortTester" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,8 +15,37 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="npB-J2-qmW">
+                                <rect key="frame" x="0.0" y="436" width="480" height="44"/>
+                                <items>
+                                    <barButtonItem title="Bubble Sort" id="caS-Zn-nlR">
+                                        <connections>
+                                            <action selector="bubbleSortPressed:" destination="BYZ-38-t0r" id="y8F-6J-1b3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSS-ae-R4v" customClass="GraphView" customModule="CWSortTester" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="436"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fSS-ae-R4v" secondAttribute="trailing" id="3yH-0z-EKy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="npB-J2-qmW" secondAttribute="bottom" id="8Wa-jb-jaI"/>
+                            <constraint firstItem="fSS-ae-R4v" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Bi9-8A-XQL"/>
+                            <constraint firstItem="npB-J2-qmW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="EaB-5m-u15"/>
+                            <constraint firstItem="fSS-ae-R4v" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="dqA-ah-PIc"/>
+                            <constraint firstAttribute="trailing" secondItem="npB-J2-qmW" secondAttribute="trailing" id="kUe-JO-iu2"/>
+                            <constraint firstItem="npB-J2-qmW" firstAttribute="top" secondItem="fSS-ae-R4v" secondAttribute="bottom" id="zxk-gH-EgP"/>
+                        </constraints>
+                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
+                    <connections>
+                        <outlet property="graphView" destination="fSS-ae-R4v" id="1sx-dE-Kkl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
