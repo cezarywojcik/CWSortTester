@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5E06A65B19421E110091AF2C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E06A65A19421E110091AF2C /* SettingsViewController.swift */; };
 		5E135A11194182E600F17FD4 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E135A10194182E600F17FD4 /* GraphView.swift */; };
+		5EA1B87A19424662004893ED /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA1B87919424662004893ED /* LogViewController.swift */; };
 		5EE5F9E11940E52D001EA288 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5F9E01940E52D001EA288 /* AppDelegate.swift */; };
 		5EE5F9E31940E52D001EA288 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE5F9E21940E52D001EA288 /* ViewController.swift */; };
 		5EE5F9E61940E52D001EA288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EE5F9E41940E52D001EA288 /* Main.storyboard */; };
@@ -28,7 +30,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E06A65A19421E110091AF2C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		5E135A10194182E600F17FD4 /* GraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		5EA1B87919424662004893ED /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
 		5EE5F9DB1940E52D001EA288 /* CWSortTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWSortTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EE5F9DF1940E52D001EA288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EE5F9E01940E52D001EA288 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E06A65819421DE80091AF2C /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5EE5F9E21940E52D001EA288 /* ViewController.swift */,
+				5E06A65A19421E110091AF2C /* SettingsViewController.swift */,
+				5EA1B87919424662004893ED /* LogViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		5E06A65919421DF70091AF2C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E135A10194182E600F17FD4 /* GraphView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		5EE5F9D21940E52D001EA288 = {
 			isa = PBXGroup;
 			children = (
@@ -85,10 +107,10 @@
 			children = (
 				5EE5F9E01940E52D001EA288 /* AppDelegate.swift */,
 				5EE5FA011940EA29001EA288 /* CWSortTester-Bridging-Header.h */,
-				5EE5F9FD1940E6DC001EA288 /* Sorters */,
-				5EE5F9E21940E52D001EA288 /* ViewController.swift */,
-				5E135A10194182E600F17FD4 /* GraphView.swift */,
 				5EE5F9E41940E52D001EA288 /* Main.storyboard */,
+				5EE5F9FD1940E6DC001EA288 /* Sorters */,
+				5E06A65819421DE80091AF2C /* View Controllers */,
+				5E06A65919421DF70091AF2C /* Views */,
 				5EE5F9E71940E52D001EA288 /* Images.xcassets */,
 				5EE5F9DE1940E52D001EA288 /* Supporting Files */,
 			);
@@ -234,6 +256,8 @@
 				5EE5F9E31940E52D001EA288 /* ViewController.swift in Sources */,
 				5EE5F9FF1940E6E9001EA288 /* swiftSorter.swift in Sources */,
 				5EE5F9E11940E52D001EA288 /* AppDelegate.swift in Sources */,
+				5EA1B87A19424662004893ED /* LogViewController.swift in Sources */,
+				5E06A65B19421E110091AF2C /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

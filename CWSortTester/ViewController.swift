@@ -8,7 +8,14 @@
 
 import UIKit
 
+enum sortTypes: Int {
+    case bubbleSort = 0
+    case quickSort = 1
+    case nativeSort = 2
+}
+
 class ViewController: UIViewController {
+    
     var yMax : CGFloat = 0
     
     var swiftResults = Array<Double>()
@@ -16,8 +23,15 @@ class ViewController: UIViewController {
     
     var from = 1
     var to = 100
-    var step = 2
+    var step = 10
     
+    var selectedSort : sortTypes = .quickSort
+    
+    var sortLog : String[] = []
+    
+    @IBOutlet var testSortButton : UIBarButtonItem
+    @IBOutlet var sortSelectionButton : UIBarButtonItem
+    @IBOutlet var sortLogButton : UIBarButtonItem
     @IBOutlet var graphView : GraphView
     
     override func didReceiveMemoryWarning() {
@@ -27,19 +41,57 @@ class ViewController: UIViewController {
                             
     override func viewDidLoad() {
         super.viewDidLoad()
+        update()
     }
     
-    @IBAction func bubbleSortPressed(sender : UIBarButtonItem) {
-        testSorts({swiftSorter.bubbleSort($0)}, objcSort: {objcSorter.bubbleSort($0)})
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator!) {
+        self.graphView.drawSwiftGraph(self.swiftResults)
+        self.graphView.drawObjcGraph(self.objcResults)
     }
     
-    @IBAction func quickSortPressed(sender : UIBarButtonItem) {
-        testSorts({swiftSorter.quickSort($0, left: 0, right: $0.count - 1)},
-            objcSort:{objcSorter.quickSort($0, left: 0, right: $0.count - 1)})
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        var navigationViewController = segue.destinationViewController as UINavigationController
+        if sender as UIBarButtonItem == self.sortSelectionButton {
+            var settingsViewController = navigationViewController.topViewController as SettingsViewController
+            settingsViewController.from = self.from
+            settingsViewController.to = self.to
+            settingsViewController.step = self.step
+            settingsViewController.selectedIndex = self.selectedSort.toRaw()
+            settingsViewController.mainViewControler = self
+        } else if sender as UIBarButtonItem == self.sortLogButton {
+            var logViewController = navigationViewController.topViewController as LogViewController
+            logViewController.sortLog = self.sortLog
+        }
     }
     
-    @IBAction func nativeSortPressed(sender : UIBarButtonItem) {
-        testSorts({swiftSorter.nativeSort($0)}, objcSort: {objcSorter.nativeSort($0)})
+    @IBAction func testSortPressed(sender : UIBarButtonItem) {
+        self.sortLog += "Running \(getSortName())..."
+        switch self.selectedSort {
+        case .bubbleSort:
+            testSorts({swiftSorter.bubbleSort($0)}, objcSort: {objcSorter.bubbleSort($0)})
+        case .quickSort:
+            testSorts({swiftSorter.quickSort($0, left: 0, right: $0.count - 1)},
+                objcSort:{objcSorter.quickSort($0, left: 0, right: $0.count - 1)})
+        case .nativeSort:
+            testSorts({swiftSorter.nativeSort($0)}, objcSort: {objcSorter.nativeSort($0)})
+        }
+    }
+    
+    func getSortName() -> String {
+        switch self.selectedSort {
+        case .bubbleSort:
+            return "Bubble Sort"
+        case .quickSort:
+            return "Quick Sort"
+        case .nativeSort:
+            return "Native Sort"
+        default:
+            return "No Sort Selected"
+        }
+    }
+    
+    func update() {
+        self.sortSelectionButton.title = getSortName()
     }
     
     func testSorts(swiftSort: (Int[]) -> (), objcSort: (Int[]) -> ()) {
@@ -48,15 +100,15 @@ class ViewController: UIViewController {
                 swiftSort($0)
             }
             let swiftTime = self.swiftResults[self.swiftResults.count - 1]
-            println("Swift Time: \(swiftTime)s")
+            self.sortLog += "Swift Time: \(swiftTime)s"
             self.graphView.drawSwiftGraph(self.swiftResults)
             self.objcResults = self.testSortRange(self.from, to: self.to, step: self.step) {
                 objcSort($0)
             }
             let objcTime = self.objcResults[self.objcResults.count - 1]
-            println("Obj-C Time: \(objcTime)s")
+            self.sortLog += "Obj-C Time: \(objcTime)s"
             self.graphView.drawObjcGraph(self.objcResults)
-            println("Obj-C was \(swiftTime / objcTime)x faster")
+            self.sortLog += "Obj-C was \(swiftTime / objcTime)x faster"
         }
     }
     
