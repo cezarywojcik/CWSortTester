@@ -15,8 +15,8 @@ class ViewController: UIViewController {
     var objcResults = Array<Double>()
     
     var from = 1
-    var to = 1000
-    var step = 100
+    var to = 100
+    var step = 2
     
     @IBOutlet var graphView : GraphView
     
@@ -47,11 +47,16 @@ class ViewController: UIViewController {
             self.swiftResults = self.testSortRange(self.from, to: self.to, step: self.step) {
                 swiftSort($0)
             }
+            let swiftTime = self.swiftResults[self.swiftResults.count - 1]
+            println("Swift Time: \(swiftTime)s")
             self.graphView.drawSwiftGraph(self.swiftResults)
             self.objcResults = self.testSortRange(self.from, to: self.to, step: self.step) {
                 objcSort($0)
             }
+            let objcTime = self.objcResults[self.objcResults.count - 1]
+            println("Obj-C Time: \(objcTime)s")
             self.graphView.drawObjcGraph(self.objcResults)
+            println("Obj-C was \(swiftTime / objcTime)x faster")
         }
     }
     
