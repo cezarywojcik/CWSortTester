@@ -53,6 +53,16 @@ class SettingsViewController: UITableViewController {
         }
     }
     
+    override func viewWillDisappear(animated: Bool) {
+        self.mainViewControler.from = self.from
+        self.mainViewControler.to = self.to
+        self.mainViewControler.step = self.step
+        if self.selectedIndex != nil {
+            self.mainViewControler.selectedSort = sortTypes.fromRaw(self.selectedIndex)!
+        }
+        self.mainViewControler.update()
+    }
+    
     func updateLabels() {
         self.from = Int(self.fromSlider.value)
         self.to = Int(self.toSlider.value)
@@ -87,15 +97,5 @@ class SettingsViewController: UITableViewController {
     
     func doneButtonPressed() {
         self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        self.mainViewControler.from = self.from
-        self.mainViewControler.to = self.to
-        self.mainViewControler.step = self.step
-        if self.selectedIndex != nil {
-            self.mainViewControler.selectedSort = sortTypes.fromRaw(self.selectedIndex)!
-        }
-        self.mainViewControler.update()
     }
 }
