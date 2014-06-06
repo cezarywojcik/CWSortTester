@@ -57,7 +57,6 @@
                             <constraint firstAttribute="trailing" secondItem="npB-J2-qmW" secondAttribute="trailing" id="kUe-JO-iu2"/>
                             <constraint firstItem="npB-J2-qmW" firstAttribute="top" secondItem="fSS-ae-R4v" secondAttribute="bottom" id="zxk-gH-EgP"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
                         <outlet property="graphView" destination="fSS-ae-R4v" id="1sx-dE-Kkl"/>
@@ -77,7 +76,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <sections>
                             <tableViewSection headerTitle="Sort Type" id="JoK-qw-8Cs">
                                 <cells>
@@ -289,7 +287,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SortLogCell" id="DZV-Ya-Quj">
                                 <autoresizingMask key="autoresizingMask"/>
