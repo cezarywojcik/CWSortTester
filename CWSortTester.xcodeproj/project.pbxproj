@@ -42,7 +42,6 @@
 		5EE5FA011940EA29001EA288 /* CWSortTester-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CWSortTester-Bridging-Header.h"; sourceTree = "<group>"; };
 		5EE5FA021940EA29001EA288 /* objcSorter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objcSorter.h; sourceTree = "<group>"; };
 		5EE5FA031940EA29001EA288 /* objcSorter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = objcSorter.m; sourceTree = "<group>"; };
-		5EE5FA0819410B70001EA288 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +87,6 @@
 				5EE5FA011940EA29001EA288 /* CWSortTester-Bridging-Header.h */,
 				5EE5F9FD1940E6DC001EA288 /* Sorters */,
 				5EE5F9E21940E52D001EA288 /* ViewController.swift */,
-				5EE5FA0819410B70001EA288 /* MyPlayground.playground */,
 				5E135A10194182E600F17FD4 /* GraphView.swift */,
 				5EE5F9E41940E52D001EA288 /* Main.storyboard */,
 				5EE5F9E71940E52D001EA288 /* Images.xcassets */,
