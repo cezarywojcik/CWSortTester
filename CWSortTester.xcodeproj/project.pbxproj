@@ -88,8 +88,8 @@
 				5EE5FA011940EA29001EA288 /* CWSortTester-Bridging-Header.h */,
 				5EE5F9FD1940E6DC001EA288 /* Sorters */,
 				5EE5F9E21940E52D001EA288 /* ViewController.swift */,
-				5E135A10194182E600F17FD4 /* GraphView.swift */,
 				5EE5FA0819410B70001EA288 /* MyPlayground.playground */,
+				5E135A10194182E600F17FD4 /* GraphView.swift */,
 				5EE5F9E41940E52D001EA288 /* Main.storyboard */,
 				5EE5F9E71940E52D001EA288 /* Images.xcassets */,
 				5EE5F9DE1940E52D001EA288 /* Supporting Files */,
@@ -354,7 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = CWSortTester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -369,7 +369,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = CWSortTester/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

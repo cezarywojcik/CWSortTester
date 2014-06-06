@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     var swiftResults = Array<Double>()
     var objcResults = Array<Double>()
     
+    var from = 1
+    var to = 1000
+    var step = 100
+    
     @IBOutlet var graphView : GraphView
     
     override func didReceiveMemoryWarning() {
@@ -23,30 +27,32 @@ class ViewController: UIViewController {
                             
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        var arr = getRandomIntArray(500)
-        var start = NSDate.date()
-        swiftSorter.bubbleSort(arr)
-        var timeInterval = -1 * start.timeIntervalSinceNow
-        println("Swift Time: \(timeInterval)s")
-        
-        arr = getRandomIntArray(500)
-        start = NSDate.date()
-        objcSorter.bubbleSort(arr)
-        timeInterval = -1 * start.timeIntervalSinceNow
-        println("Objc Time: \(timeInterval)s")
     }
     
     @IBAction func bubbleSortPressed(sender : UIBarButtonItem) {
-        swiftResults = testSortRange(1, to: 100, step: 10) {
-            swiftSorter.bubbleSort($0)
+        testSorts({swiftSorter.bubbleSort($0)}, objcSort: {objcSorter.bubbleSort($0)})
+    }
+    
+    @IBAction func quickSortPressed(sender : UIBarButtonItem) {
+        testSorts({swiftSorter.quickSort($0, left: 0, right: $0.count - 1)},
+            objcSort:{objcSorter.quickSort($0, left: 0, right: $0.count - 1)})
+    }
+    
+    @IBAction func nativeSortPressed(sender : UIBarButtonItem) {
+        testSorts({swiftSorter.nativeSort($0)}, objcSort: {objcSorter.nativeSort($0)})
+    }
+    
+    func testSorts(swiftSort: (Int[]) -> (), objcSort: (Int[]) -> ()) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.swiftResults = self.testSortRange(self.from, to: self.to, step: self.step) {
+                swiftSort($0)
+            }
+            self.graphView.drawSwiftGraph(self.swiftResults)
+            self.objcResults = self.testSortRange(self.from, to: self.to, step: self.step) {
+                objcSort($0)
+            }
+            self.graphView.drawObjcGraph(self.objcResults)
         }
-        self.graphView.drawSwiftGraph(swiftResults)
-        objcResults = testSortRange(1, to: 100, step: 10) {
-            objcSorter.bubbleSort($0)
-        }
-        self.graphView.drawObjcGraph(objcResults)
-
     }
     
     func testSortRange(from : Int, to: Int, step: Int, sortFunction: (Int[]) -> ()) ->

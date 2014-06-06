@@ -11,5 +11,7 @@
 @interface objcSorter : NSObject
 
 + (void)bubbleSort:(NSArray *)arr;
++ (void)quickSort:(NSArray *)arr left:(NSInteger)left right: (NSInteger)right;
++ (void)nativeSort:(NSArray *)arr;
 
 @end

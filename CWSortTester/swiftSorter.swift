@@ -15,12 +15,29 @@ struct swiftSorter {
             numSwaps = 0
             for i in 0..(arr.count - 1) {
                 if arr[i] > arr[i + 1] {
-                    var temp = arr[i]
-                    arr[i] = arr[i + 1]
-                    arr[i + 1] = temp
+                    (arr[i], arr[i + 1]) = (arr[i + 1], arr[i])
                     numSwaps++
                 }
             }
         } while numSwaps != 0
+    }
+    
+    static func quickSort<T : Comparable>(arr : T[], left: Int, right: Int) {
+        if right > left {
+            var i = left
+            for j in (left + 1)..(right + 1) {
+                if arr[j] < arr[left] {
+                    i++
+                    (arr[i], arr[j]) = (arr[j], arr[i])
+                }
+            }
+            (arr[i], arr[left]) = (arr[left], arr[i])
+            quickSort(arr, left: left, right: i - 1)
+            quickSort(arr, left: i + 1, right: right)
+        }
+    }
+    
+    static func nativeSort<T : Comparable>(arr : T[]) {
+        sort(arr)
     }
 }

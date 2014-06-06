@@ -10,7 +10,8 @@
 
 @implementation objcSorter
 
-+ (void)bubbleSort:(NSArray *)arr {
++ (void)bubbleSort:(NSArray *)arr
+{
     NSMutableArray *result = [arr mutableCopy];
     NSUInteger numSwaps = 0;
     do {
@@ -22,6 +23,28 @@
             }
         }
     } while (numSwaps != 0);
+}
+
++ (void)quickSort:(NSArray *)arr left:(NSInteger)left right: (NSInteger)right
+{
+    NSMutableArray *result = [arr mutableCopy];
+    if (right > left) {
+        NSInteger i = left;
+        for (NSInteger j = left + 1; j < right + 1; j++) {
+            if ([result objectAtIndex:j] < [result objectAtIndex:left]) {
+                i++;
+                [result exchangeObjectAtIndex:i withObjectAtIndex:j];
+            }
+        }
+        [result exchangeObjectAtIndex:i withObjectAtIndex:left];
+        [self quickSort:result left:left right:i - 1];
+        [self quickSort:result left:i + 1 right:right];
+    }
+}
+
++ (void)nativeSort:(NSArray *)arr
+{
+    [arr sortedArrayUsingSelector:@selector(compare:)];
 }
 
 @end
