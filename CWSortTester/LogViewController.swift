@@ -27,7 +27,6 @@ class LogViewController: UITableViewController {
         let cellIdentifier = "SortLogCell"
         var cell : UITableViewCell! = self.tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as UITableViewCell
         if cell == nil {
-            println("yolo")
             cell = UITableViewCell(style: .Subtitle, reuseIdentifier: cellIdentifier)
         }
         cell.textLabel.text = self.sortLog[indexPath.row]
