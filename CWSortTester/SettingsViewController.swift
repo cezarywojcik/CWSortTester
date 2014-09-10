@@ -12,19 +12,23 @@ class SettingsViewController: UITableViewController {
     
     weak var mainViewControler : ViewController!
     
-    @IBOutlet var fromSlider : UISlider
-    @IBOutlet var toSlider : UISlider
-    @IBOutlet var stepSlider : UISlider
+    @IBOutlet var fromSlider : UISlider!
+    @IBOutlet var toSlider : UISlider!
+    @IBOutlet var stepSlider : UISlider!
     
-    @IBOutlet var fromLabel : UILabel
-    @IBOutlet var toLabel : UILabel
-    @IBOutlet var stepLabel : UILabel
+    @IBOutlet var fromLabel : UILabel!
+    @IBOutlet var toLabel : UILabel!
+    @IBOutlet var stepLabel : UILabel!
     
     var from : Int!
     var to : Int!
     var step : Int!
     
     var selectedIndex : Int!
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,7 +39,7 @@ class SettingsViewController: UITableViewController {
         super.viewDidLoad()
         self.title = "Settings"
         var saveButton = UIBarButtonItem(title: "Save", style: .Done, target: self, action: "saveButtonPressed")
-        self.navigationController.topViewController.navigationItem.rightBarButtonItem = saveButton
+        self.navigationController!.topViewController.navigationItem.rightBarButtonItem = saveButton
         self.fromSlider.value = Float(from)
         self.toSlider.value = Float(to)
         self.stepSlider.value = Float(step)
@@ -46,7 +50,7 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    override func tableView(tableView: UITableView!, didHighlightRowAtIndexPath indexPath: NSIndexPath!) {
+    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 {
             self.selectedIndex = indexPath.row;
         }

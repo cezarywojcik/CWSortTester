@@ -10,7 +10,7 @@ import UIKit
 
 class GraphView: UIView {
     
-    init(coder aDecoder: NSCoder!) {
+    required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clearColor()
     }
@@ -34,7 +34,7 @@ class GraphView: UIView {
         }
     }
     
-    func drawData( context: CGContext!, data: Array<Double>!, color: UIColor, rect: CGRect) {
+    func drawData(context: CGContext!, data: Array<Double>!, color: UIColor, rect: CGRect) {
         if CGFloat(data[data.count - 1]) > yMax {
             yMax = CGFloat(data[data.count - 1])
         }
